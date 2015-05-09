@@ -1,16 +1,16 @@
 cflags=-Wall -Os -std=gnu99 -g
 
 name=cli
-srcs=cli.c
+srcs=src/cli.c
 objs=$(subst .c,.o,$(srcs))
 lsts=$(subst .c,.lst,$(srcs))
 
 # libusb
 libs+=-lusb-1.0
 
-cflags+=-I protocol
+cflags+=-I vendor/protocol/src
 
-ui=usb-interface
+ui=vendor/usb-interface/src
 cflags+=-I $(ui)
 srcs+= \
 	$(ui)/usb_interface.c
